@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    build:
+      dockerfile: Dockerfile.db
+      context: .
+    image: nethumgowda/ecom-app:v1
+    ports:
+      - "3306:3306"
+  app:
+    build:
+      dockerfile: Dockerfile.app
+      context: .
+    image: nethumgowda/ecom-db:v1
+    ports:
+      - "8080:8080"
